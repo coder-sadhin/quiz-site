@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
+  let activeStyle = {
+    textDecoration: "underline",
+    color: "blue"
+  };
+
   return (
     <div className="bg-blue-200 px-4 py-2 mx-auto">
       <nav className="w-full">
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <Link
+              <NavLink
                 to="/"
                 aria-label="Grand Quiz"
                 title="Grand Quiz"
@@ -19,7 +24,7 @@ const Header = () => {
                 <span className="ml-2 text-2xl font-bold tracking-wide text-blue-800 uppercase">
                   Grand Quiz
                 </span>
-              </Link>
+              </NavLink>
               <div className="md:hidden">
                 <button
                   className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -65,44 +70,56 @@ const Header = () => {
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li>
-                  <Link
+                  <NavLink
                     to="/home"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
                     aria-label="Home"
                     title="Home"
                     className="font-bold text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-purple-500"
                   >
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="/quizzes"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
                     aria-label="Quizzes"
                     title="Quizzes"
                     className="font-bold text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-purple-500"
                   >
                     Quizzes
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="/overview"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
                     aria-label="Overview"
                     title="Overview"
                     className="font-bold text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-purple-500"
                   >
                     Overview
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="/blogs"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
                     aria-label="Blogs"
                     title="Blogs"
                     className="font-bold text-xl tracking-wide text-gray-900 transition-colors duration-200 hover:text-purple-500"
                   >
                     Blogs
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

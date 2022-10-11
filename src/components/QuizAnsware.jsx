@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 const QuizAnsware = ({ ansOption, id, getCorrectAnswer, btnState, rights, wrongs }) => {
     //state for after click bg color
     const [color, setColor] = useState("bg-blue-50");
+    // state for after click checked
+    const [check, setCheck] = useState(false);
     //after click area will not allaow cursor
     const [areaDisabled, setAreaDisabled] = btnState;
     // right ans set state
@@ -13,6 +15,8 @@ const QuizAnsware = ({ ansOption, id, getCorrectAnswer, btnState, rights, wrongs
 
 
     const handleToSetBg = (ansOption) => {
+        // set check btn
+        setCheck(true);
         // handleToCurrectAns(ansOption);
         const ans = getCorrectAnswer === ansOption;
         if (ans) {
@@ -32,7 +36,7 @@ const QuizAnsware = ({ ansOption, id, getCorrectAnswer, btnState, rights, wrongs
     return (
         <label className={`border rounded-md ${color} ${areaDisabled} py-5 px-3`}>
             <button className={areaDisabled} onClick={() => handleToSetBg(ansOption)} >
-                <input className='mr-2 checked:bg-blue-500' type="radio" name={id} />
+                <input className='mr-2 checked:bg-blue-500' checked={check} type="radio" name={id} />
                 <span >{ansOption}</span>
             </button>
 
