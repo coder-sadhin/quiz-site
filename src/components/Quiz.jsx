@@ -4,7 +4,7 @@ import QuizQustions from './QuizQustions';
 
 const Quiz = () => {
     const quizBySub = useLoaderData();
-    const { questions, total, id, name } = quizBySub.data;
+    const { questions, name } = quizBySub.data;
 
     // console.log(id, total)
     return (
@@ -16,7 +16,7 @@ const Quiz = () => {
             </div>
             <div className='flex flex-col gap-8'>
                 {
-                    questions.map(qus => <QuizQustions key={qus.id} quizQuestion={qus} />)
+                    questions.map((qus, index) => <QuizQustions key={qus.id} index={index} quizQuestion={qus} />)
                 }
             </div>
         </div>

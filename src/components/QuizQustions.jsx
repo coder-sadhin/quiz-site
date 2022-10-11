@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import QuizAnsware from './QuizAnsware';
 
-const QuizQustions = ({ quizQuestion }) => {
+const QuizQustions = ({ quizQuestion, index }) => {
     const { correctAnswer, id, options, question } = quizQuestion;
     // console.log(question)
     const handleToCurrectAns = (option) => {
@@ -23,7 +23,7 @@ const QuizQustions = ({ quizQuestion }) => {
     return (
         <div className='bg-yellow-200'>
             <div>
-                <h3>Quiz: {question}</h3>
+                <h3>Quiz {index + 1}: {question}</h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
                 {
