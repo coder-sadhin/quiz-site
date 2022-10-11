@@ -6,7 +6,7 @@ const QuizItem = ({ quiz }) => {
     return (
         <div className='border rounded border-blue-600'>
             <div className='p-2'>
-                <div className='bg-green-400'>
+                <div className='bg-green-400 rounded'>
                     <img src={logo} alt="" />
                 </div>
                 <div className='flex items-center justify-between pt-2 '>
