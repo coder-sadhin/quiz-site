@@ -15,8 +15,8 @@ const QuizQustions = ({ quizQuestion, index, right, wrong }) => {
     }
 
     return (
-        <div className={`border rounded shadow-md shadow-slate-300 m-3 p-5  mx-auto w-10/12 ${areaDisabled}`}>
-            <EyeIcon onClick={() => handleToEyeIconClick(index, correctAnswer)} className="absolute h-6 w-6 text-blue-500" />
+        <div className={`border rounded shadow-md bg-blue-400 shadow-slate-300 m-3 p-5  mx-auto w-10/12 ${areaDisabled}`}>
+            <EyeIcon onClick={() => handleToEyeIconClick(index, correctAnswer)} className="absolute h-6 w-6 text-white" />
             <div className='text-center mb-4 text-3xl w-6/12 mx-auto'>
                 <h3><span className='text-green-600 font-bold'>Quiz {index + 1}:</span> {question}</h3>
             </div>
