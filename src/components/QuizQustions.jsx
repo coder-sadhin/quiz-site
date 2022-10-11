@@ -1,33 +1,26 @@
-import React from 'react';
-import { toast } from 'react-toastify';
+import React, { useState } from 'react';
 import QuizAnsware from './QuizAnsware';
+
 
 const QuizQustions = ({ quizQuestion, index }) => {
     const { correctAnswer, id, options, question } = quizQuestion;
     // console.log(question)
-    const handleToCurrectAns = (option) => {
-        // console.log(option)
-        const ans = correctAnswer === option;
-        if (ans) {
-            toast.success('Congratulation! You choice the right one!', { autoClose: 1000 })
-        }
-        else {
-            toast.error('Opps! You choice wrong!', { autoClose: 1000 })
-
-        }
-
-    }
-
-    // console.log(lastCharOfId);
+    const [btn, setBtn] = useState("");
 
     return (
-        <div className='bg-yellow-200'>
-            <div>
-                <h3>Quiz {index + 1}: {question}</h3>
+        <div className={`border rounded shadow-md shadow-slate-300 m-3 p-5  mx-auto w-10/12 ${btn}`}>
+            <div className='text-center mb-4 text-3xl w-6/12 mx-auto'>
+                <h3><span className='text-green-600 font-bold'>Quiz {index + 1}:</span> {question}</h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
                 {
-                    options.map(option => <QuizAnsware handleToCurrectAns={handleToCurrectAns} id={id} ansOption={option} />)
+                    options.map(option => <QuizAnsware
+                        id={index}
+                        ansOption={option}
+                        getCorrectAnswer={correctAnswer}
+                        btnState={[btn, setBtn]}
+                    />)
+
                 }
             </div>
         </div>
